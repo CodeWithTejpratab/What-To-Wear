@@ -5,10 +5,9 @@ source ~/.zshrc
 # OpenWeatherMap API endpoint
 API_ENDPOINT="http://api.openweathermap.org/data/2.5/weather?q=${CITY},${COUNTRY}&appid=${API_KEY}"
 
-# Get weather information using curl and jq
 WEATHER_TEMP=$(curl -s "$API_ENDPOINT" | jq -r '.main.temp')
 
-# Convert temperature from Kelvin to Fahrenheit
+# Convert the temperature from Kelvin to Fahrenheit
 WEATHER_TEMP_F=$(echo "scale=2; (${WEATHER_TEMP} * 9/5) - 459.67" | bc)
 
 # Phone number to send the message
